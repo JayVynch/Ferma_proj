@@ -1,0 +1,190 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7000;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    width: 100%;
+    color: #fff;
+    font-size: 16px;
+    font-family: sans-serif;
+}
+
+.topbar-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    margin-left: auto;
+    margin-right: 60px;
+}
+
+.topbar-menu-item {
+    padding: 0;
+}
+
+.topbar-menu-item:not(:last-child) {
+    margin-right: 25px;
+}
+
+.topbar-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.topbar-link:hover,
+.topbar-link:active {
+    color: currentcolor;
+    text-decoration: none;
+}
+
+.topbar-link.-button {
+    padding: 10px 15px;
+    background: #fff;
+    color: #444;
+    border: none;
+    border-radius: 5px;
+}
+
+.topbar-link.-button:hover,
+.topbar-link.-button:active {
+    color: #444;
+  }
+
+.topbar-link.-active {
+    padding-bottom: 7px;
+    border-bottom: 2px solid currentcolor;
+}
+
+.topbar-brand {
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+/* PAGE SECTION */
+.page {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    /*   contain the page-nav inside page  */
+    transform: scale(1);
+}
+
+.section-container {
+    height: 100%;
+    transform: translate3d(0px, 0px, 0px);
+    transition: all 700ms ease 0s;
+}
+
+.page-section {
+    height: 100%;
+}
+
+.page-section:nth-child(1) {
+    background: green;
+}
+
+.page-setup{
+    display: flex;
+    flex-flow: column;
+    /*justify-content: center;*/
+} 
+
+.ferma-logo{
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+    width: 100%;
+}
+.trigger-button{
+    position: absolute;
+    top: 600px;
+    left: 250px;
+    z-index: 2;
+}
+
+.titling{
+    color: white;
+    position: absolute;
+    z-index: 2;
+    top: 250px;
+    text-align: center;
+    width: 100%;
+}
+
+.card-to-front{
+    z-index: 3;
+}
+
+@media screen and (max-device-width: 480px){
+    .trigger-button{
+        top: 390px;
+        left: 85px;
+    }
+}
+
+a .navbar-item:hover{
+    color: blue;
+}
+
+.justify-center{
+    justify-content: center;
+}
+
+.file-listing{
+    width: 400px;
+    margin: auto;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.file-listing img{
+    height: 100px;
+}
+
+.input-groupping{
+    display: flex;
+}
+
+.image-adjustment-on-upload {
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+}
+
+@media screen and (max-width: 480px){
+    .input-groupping{
+        flex-direction: column;
+    }
+
+    .for-mobile {
+        flex-basis: 75%;
+        width: 95%;
+    }
+
+    .for-upload-mobile {
+        flex-basis: 80%;
+        width: 80vw;
+    }
+}
+
+@media screen and (min-width:480px){
+    .card-titling{
+        color: #363636;
+        flex-grow: 1;
+        flex-shrink: 0;
+        font-size: 1.5rem;
+        line-height: 1;
+    }
+}
