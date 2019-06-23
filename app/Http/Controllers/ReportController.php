@@ -47,10 +47,12 @@ class ReportController extends Controller
         $report->description        = request('description');
         // dd('all ok');
         $report->save();
+
         //check if the request has an actual image file
         if($request->hasFile('fermaUpload')){
             foreach ($request->fermaUpload as $upload) {
                 // dd($upload);
+                
                 //get the image name without the extension
                 $imageName = pathinfo($upload
                             ->getClientOriginalName(),PATHINFO_FILENAME);
@@ -61,18 +63,19 @@ class ReportController extends Controller
                 // file name to store in database
                 // the name is saved with timestamp so our image name is unique
                 $imageStore = time()."-".$imageName.".".$imageWithExtension;
+                $data[] =  $imageStore;
+                
                 // dd($imageStore);
+
                 // resize original size of image and save to folder and database
                 $store = Image::make($upload)->resize(944,709.33)
-                        ->save($this->pathToProfileImage.'/'.$imageStore);
-
-                $saveUpload->report_image = $imageStore;
-                $saveUpload->report_id = $report->id;
+                        ->save($this->pathToProfileImage.'/'.$imageStore);                
                 
-                $saveUpload->save();
             }
+            $saveUpload->report_image = json_encode($data);
+            $report->reportImages()->save($saveUpload);
             // dd($report->reportImages);
         }        
-
+        return response()->json(['upload' => 'Stored']);
     }
 }
