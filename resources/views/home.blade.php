@@ -18,7 +18,40 @@
                 </div>
             </div>
         </div>
-        <div class="column"></div>
+        <div class="column is-two-thirds">
+            <div class="columns">
+                <div class="column">
+                    <div class="card ">
+                        <div class="card-content">
+                            <div class="media-content ">
+                                <h1 class="title centering-text">{{$reports->count()}} {{ str_plural('report', $reports->count()) }}</h1>
+                                <p class="subtile centering-text">{{\Carbon\Carbon::today()->diffForHumans()}}</p>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card ">                
+                        <div class="card-content">
+                            <div class="media-content ">
+                                <h1 class="title centering-text">{{Auth::user()->fullname() }}</h1>
+                                <p class="subtile centering-text">{{ Auth::user()->email}}</p>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="card ">                
+                        <div class="card-content">
+                            <div class="media-content ">
+                                <h1 class="title centering-text">{{Auth::user()->fullname() }}</h1>
+                                <p class="subtile centering-text">{{ Auth::user()->email}}</p>
+                            </div>
+                        </div>        
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 @endsection

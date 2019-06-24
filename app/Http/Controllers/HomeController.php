@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Report;
+use App\Model\ReportUpload;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $reports = Report::all();
+        return view('home',compact('reports'));
     }
 }
